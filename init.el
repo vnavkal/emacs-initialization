@@ -57,3 +57,12 @@
 ;; Column Marker
 (require 'column-marker)
 (add-hook 'ruby-mode-hook (lambda () (interactive) (column-marker-1 140)))
+
+;; Comment region in Ruby
+(add-hook 'ruby-mode-hook (lambda () (define-key ruby-mode-map "\C-c#" 'comment-or-uncomment-region)))
+
+;; Set eshell to non-greedy autocomplete behavior
+(add-hook
+ 'eshell-mode-hook
+ (lambda ()
+   (setq pcomplete-cycle-completions nil)))
