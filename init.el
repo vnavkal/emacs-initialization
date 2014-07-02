@@ -85,3 +85,5 @@
 	  (kill-buffer buffer)))
       (message "Killed %i dired buffer(s)." count))))
 (global-set-key (kbd "C-x D") 'kill-all-dired-buffers)
+
+(rvm-use-default) ;; use rvm's default ruby for the current Emacs session
