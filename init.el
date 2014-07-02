@@ -61,6 +61,9 @@
 ;; Comment region in Ruby
 (add-hook 'ruby-mode-hook (lambda () (define-key ruby-mode-map "\C-c#" 'comment-or-uncomment-region)))
 
+;; Activate ruby-mode when rake files are opened
+(add-to-list 'auto-mode-alist '("\\.rake\\'" . ruby-mode))
+
 ;; Set eshell to non-greedy autocomplete behavior
 (add-hook
  'eshell-mode-hook
