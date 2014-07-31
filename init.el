@@ -87,3 +87,7 @@
 (global-set-key (kbd "C-x D") 'kill-all-dired-buffers)
 
 (rvm-use-default) ;; use rvm's default ruby for the current Emacs session
+
+;; Set ido to start automatically
+(require 'ido)
+(ido-mode t)
