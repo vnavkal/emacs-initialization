@@ -91,3 +91,6 @@
 ;; Set ido to start automatically
 (require 'ido)
 (ido-mode t)
+
+;; Set tags file location
+(setq tags-file-name "/home/viraj/upstart_web/TAGS")
