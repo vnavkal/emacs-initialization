@@ -57,6 +57,7 @@
 ;; Column Marker
 (require 'column-marker)
 (add-hook 'ruby-mode-hook (lambda () (interactive) (column-marker-1 100)))
+(add-hook 'python-mode-hook (lambda () (interactive) (column-marker-1 120)))
 
 ;; Comment region in Ruby
 (add-hook 'ruby-mode-hook (lambda () (define-key ruby-mode-map "\C-c#" 'comment-or-uncomment-region)))
