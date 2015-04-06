@@ -1,20 +1,9 @@
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(inhibit-startup-screen t)
- '(python-shell-interpreter "~/anaconda/bin/python"))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+(setq inhibit-startup-screen t
+      python-shell-interpreter "~/anaconda/bin/python")
 
-(setq default-frame-alist '(
-                (width . 160)
-                (height . 48) ))
+(setq default-frame-alist
+      '((width . 160)
+	(height . 48)))
 
 (set-face-attribute 'default nil :height 160)
 
@@ -35,6 +24,9 @@
 
 ;; set color theme to solarized-light
 (color-theme-solarized-light)
+
+;; set python color theme to solarized-dark
+(add-hook 'python-mode-hook (lambda () (color-theme-solarized-dark)))
 
 ;; remove menu bar and toolbar
 (menu-bar-mode -1)
@@ -95,3 +87,5 @@
 
 ;; Set tags file location
 (setq tags-file-name "/home/viraj/upstart_web/TAGS")
+(put 'downcase-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
