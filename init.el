@@ -39,9 +39,29 @@
 ;;(add-hook 'ruby-mode-hook 'fci-mode)
 ;;(setq-default fill-column 140)
 
+
 ;; Rinari
 (add-to-list 'load-path "~/.emacs.d/rinari")
 (require 'rinari)
+
+;; load variables stored in .env
+(defadvice rinari-console (before init-environment activate)
+  (source-script "~/upstart_web/.env"))
+
+(defun source-script (script)
+   (let ((env (extract-environment script)))
+       (mapc 'import-environment-variable (split-string env "\n"))))
+
+(defun extract-environment (script)
+   (shell-command-to-string (format "set -a; . %s > /dev/null 2>&1; env" script)))
+
+(defun import-environment-variable (variable-assignment)
+   (when (not (or (null variable-assignment) (string= "" variable-assignment)))
+      (let* ((key-value-pair (split-string variable-assignment "="))
+             (key (car key-value-pair))
+             (value (cadr key-value-pair)))
+        (setenv key value))))
+
 
 ;; Set default editor to emacs
 (setenv "EDITOR" "emacs")
