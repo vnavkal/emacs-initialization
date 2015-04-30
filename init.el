@@ -1,11 +1,9 @@
-(setq inhibit-startup-screen t
-      python-shell-interpreter "~/anaconda/bin/python")
+;; path where settings files are kept
+(add-to-list 'load-path "~/.emacs.d/settings")
 
-(setq default-frame-alist
-      '((width . 160)
-	(height . 48)))
+(require 'general-settings)
 
-(set-face-attribute 'default nil :height 160)
+(setq python-shell-interpreter "~/anaconda/bin/python")
 
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
@@ -19,18 +17,11 @@
 
 (el-get 'sync)
 
-;; set emacs to share clipboard with system
-(setq x-select-enable-clipboard t)
-
 ;; set color theme to solarized-light
 (color-theme-solarized-light)
 
 ;; set python color theme to solarized-dark
 (add-hook 'python-mode-hook (lambda () (color-theme-solarized-dark)))
-
-;; remove menu bar and toolbar
-(menu-bar-mode -1)
-(tool-bar-mode -1)
 
 ;; load fill-column-indicator in ruby and python
 ;;(require 'fill-column-indicator)
@@ -62,9 +53,6 @@
              (value (cadr key-value-pair)))
         (setenv key value))))
 
-
-;; Set default editor to emacs
-(setenv "EDITOR" "emacs")
 
 ;; Column Marker
 (require 'column-marker)
