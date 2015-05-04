@@ -22,10 +22,10 @@
 ;; set color theme to solarized-light
 (color-theme-solarized-light)
 
-(setq python-shell-interpreter "~/anaconda/bin/python")
+;; Column Marker
+(require 'column-marker)
 
-;; set python color theme to solarized-dark
-(add-hook 'python-mode-hook (lambda () (color-theme-solarized-dark)))
+(require 'python-settings)
 
 ;; Rinari
 (add-to-list 'load-path "~/.emacs.d/rinari")
@@ -50,10 +50,7 @@
         (setenv key value))))
 
 
-;; Column Marker
-(require 'column-marker)
 (add-hook 'ruby-mode-hook (lambda () (interactive) (column-marker-1 100)))
-(add-hook 'python-mode-hook (lambda () (interactive) (column-marker-1 100)))
 
 ;; Comment region in Ruby
 (add-hook 'ruby-mode-hook (lambda () (define-key ruby-mode-map "\C-c#" 'comment-or-uncomment-region)))
