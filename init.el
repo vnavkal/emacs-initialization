@@ -3,8 +3,6 @@
 
 (require 'general-settings)
 
-(setq python-shell-interpreter "~/anaconda/bin/python")
-
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
 (unless (require 'el-get nil 'noerror)
@@ -17,19 +15,17 @@
 
 (el-get 'sync)
 
+;; Set ido to start automatically
+(require 'ido)
+(ido-mode t)
+
 ;; set color theme to solarized-light
 (color-theme-solarized-light)
 
+(setq python-shell-interpreter "~/anaconda/bin/python")
+
 ;; set python color theme to solarized-dark
 (add-hook 'python-mode-hook (lambda () (color-theme-solarized-dark)))
-
-;; load fill-column-indicator in ruby and python
-;;(require 'fill-column-indicator)
-;;(setq fci-rule-width 1)
-;;(setq fci-rule-color "darkblue")
-;;(add-hook 'ruby-mode-hook 'fci-mode)
-;;(setq-default fill-column 140)
-
 
 ;; Rinari
 (add-to-list 'load-path "~/.emacs.d/rinari")
@@ -88,10 +84,6 @@
 (global-set-key (kbd "C-x D") 'kill-all-dired-buffers)
 
 (rvm-use-default) ;; use rvm's default ruby for the current Emacs session
-
-;; Set ido to start automatically
-(require 'ido)
-(ido-mode t)
 
 ;; Set tags file location
 (setq tags-file-name "/home/viraj/upstart_web/TAGS")
