@@ -39,4 +39,8 @@
 ;; disable auto save
 (setq auto-save-default nil)
 
+;; enable downcase-region and upcase-region
+(put 'downcase-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
+
 (provide 'general-settings)
