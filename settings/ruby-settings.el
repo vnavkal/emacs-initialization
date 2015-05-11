@@ -3,7 +3,7 @@
 
 ;; Rinari
 (add-to-list 'load-path "~/.emacs.d/rinari")
-(add-hook 'ruby-mode-hook (require 'rinari))
+(add-hook 'ruby-mode-hook (progn (require 'rinari) (global-rinari-mode)))
 
 ;; load variables stored in .env
 (defadvice rinari-console (before init-environment activate)

@@ -28,7 +28,7 @@
 (add-hook 'before-make-frame-hook 'custom-set-frame-size)
 
 ;; require final newlines in files when they are saved
-(setq require-final-newline 1)
+(setq require-final-newline 't)
 
 ;; highlight parentheses when the cursor is next to them
 (require 'paren)
