@@ -35,6 +35,12 @@
 (add-hook 'ruby-mode-hook
 	  (lambda () (setq tags-file-name "/home/viraj/upstart_web/TAGS")))
 
+;; Define function to update tags
+(defun update-rails-ctags ()
+  (interactive)
+  (let ((default-directory (or (rinari-root) default-directory)))
+    (shell-command (concat "ctags -a -e -f " rinari-tags-file-name " --tag-relative -R app lib vendor test"))))
+
 ;; Activate ruby-mode when rake files are opened
 (add-to-list 'auto-mode-alist '("\\.rake\\'" . ruby-mode))
 
