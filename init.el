@@ -35,3 +35,5 @@
 (require 'emacs-lisp-settings)
 
 (require 'dired-settings)
+
+(require 'org-settings)
