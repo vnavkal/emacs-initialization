@@ -43,4 +43,10 @@
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
 
+;; disable prompt that appears when file was modified by another program
+;; this is not ideal, I have to do it because Insync touches files
+(defun ask-user-about-supersession-threat (fn)
+  "blatantly ignore files that changed on disk"
+  )
+
 (provide 'general-settings)
