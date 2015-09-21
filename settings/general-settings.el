@@ -48,5 +48,8 @@
 (defun ask-user-about-supersession-threat (fn)
   "blatantly ignore files that changed on disk"
   )
+(defun ask-user-about-lock (file opponent)
+  "always grab lock"
+   t)
 
 (provide 'general-settings)
