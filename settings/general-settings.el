@@ -52,4 +52,14 @@
   "always grab lock"
    t)
 
+;; load the solarized color theme, and use the dark mode for the terminal and
+;; the light mode for other frames
+(load-theme 'solarized t)
+(add-hook 'after-make-frame-functions
+          (lambda (frame)
+	    (let ((mode (if (display-graphic-p frame) 'light 'dark)))
+              (set-frame-parameter frame 'background-mode mode)
+              (set-terminal-parameter frame 'background-mode mode))
+            (enable-theme 'solarized)))
+
 (provide 'general-settings)
