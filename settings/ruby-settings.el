@@ -1,6 +1,3 @@
-;; set color theme to solarized-light
-(add-hook 'ruby-mode-hook 'color-theme-solarized-light)
-
 ;; Rinari
 (add-to-list 'load-path "~/.emacs.d/rinari")
 (add-hook 'ruby-mode-hook (progn (require 'rinari) (global-rinari-mode)))
