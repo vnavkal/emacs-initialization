@@ -33,5 +33,3 @@
 (require 'dired-settings)
 
 (require 'org-settings)
-
-(enable-theme 'solarized)
