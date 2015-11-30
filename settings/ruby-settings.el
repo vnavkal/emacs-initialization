@@ -22,7 +22,7 @@
 
 ;; Use tags from upstart_web
 (add-hook 'ruby-mode-hook
-	  (lambda () (setq tags-file-name "/home/viraj/upstart_web/TAGS")))
+	  (lambda () (setq tags-file-name "~/upstart_web/TAGS")))
 
 ;; Define function to update tags
 (defun update-rails-ctags ()
