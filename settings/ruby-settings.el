@@ -1,11 +1,3 @@
-;; Rinari
-(add-to-list 'load-path "~/.emacs.d/rinari")
-(add-hook 'ruby-mode-hook (progn (require 'rinari) (global-rinari-mode)))
-
-;; load variables stored in .env
-(defadvice rinari-console (before init-environment activate)
-  (source-script "~/upstart_web/.env"))
-
 (defun source-script (script)
    (let ((env (extract-environment script)))
        (mapc 'import-environment-variable (split-string env "\n"))))
@@ -35,8 +27,7 @@
 ;; Define function to update tags
 (defun update-rails-ctags ()
   (interactive)
-  (let ((default-directory (or (rinari-root) default-directory)))
-    (shell-command (concat "ctags -a -e -f " rinari-tags-file-name " --tag-relative -R app lib vendor test"))))
+  (shell-command (concat "ripper-tags --emacs -R -f ~/upstart_web/TAGS")))
 
 ;; Activate ruby-mode when rake files are opened
 (add-to-list 'auto-mode-alist '("\\.rake\\'" . ruby-mode))
