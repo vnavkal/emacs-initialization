@@ -62,4 +62,7 @@
               (set-terminal-parameter frame 'background-mode mode))
             (enable-theme 'solarized)))
 
+;; enable auto-complete
+(ac-config-default)
+
 (provide 'general-settings)
