@@ -43,6 +43,9 @@
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
 
+;; display line number even on large files
+(setq line-number-display-limit-width 2000000)
+
 ;; disable prompt that appears when file was modified by another program
 ;; this is not ideal, I have to do it because Insync touches files
 (defun ask-user-about-supersession-threat (fn)
