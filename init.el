@@ -37,6 +37,8 @@
 
 (require 'dired-settings)
 
+(require 'sql-settings)
+
 (require 'org-settings)
 
 (require 'projectile-settings)
