@@ -69,7 +69,7 @@
 (ac-config-default)
 
 ;; set keys for cycling through buffers
-(global-set-key (kbd "C-;") 'previous-buffer)
-(global-set-key (kbd "C-'") 'next-buffer)
+(global-set-key (kbd "C-,") 'previous-buffer)
+(global-set-key (kbd "C-.") 'next-buffer)
 
 (provide 'general-settings)
