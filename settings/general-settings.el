@@ -22,10 +22,18 @@
 ;; default window width and height
 (defun custom-set-frame-size ()
   (add-to-list 'default-frame-alist '(height . 48))
-  (add-to-list 'default-frame-alist '(width . 160))
-  (add-to-list 'default-frame-alist '(font . "Monospace-20" )))
+  (add-to-list 'default-frame-alist '(width . 160)))
 (custom-set-frame-size)
 (add-hook 'before-make-frame-hook 'custom-set-frame-size)
+
+;; default font
+(defun custom-set-font()
+  (let* ((computer-name (getenv "COMPUTER_NAME"))
+	 (custom-font (cond ((string= computer-name "lappie") "Terminus-24")
+			    (t "Monospace-20"))))
+    (set-frame-font custom-font nil t)))
+(custom-set-font)
+(add-hook 'before-make-frame-hook 'custom-set-font)
 
 ;; require final newlines in files when they are saved
 (setq require-final-newline 't)
