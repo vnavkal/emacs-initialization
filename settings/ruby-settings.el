@@ -37,4 +37,11 @@
 
 (rvm-use-default) ;; use rvm's default ruby for the current Emacs session
 
+;; This can be removed once projectile-rails is updated.
+;; See https://github.com/asok/projectile-rails/issues/105.
+(define-globalized-minor-mode projectile-rails-global-mode
+  projectile-rails-mode
+  projectile-rails-on)
+(projectile-rails-global-mode)
+
 (provide 'ruby-settings)
