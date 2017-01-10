@@ -1,5 +1,5 @@
 (projectile-global-mode)
-(add-hook 'projectile-mode-hook 'projectile-rails-on)
+(projectile-rails-global-mode)
 
 ;; Use helm-projectile
 (require 'helm-projectile)
