@@ -1,5 +1,9 @@
 (elpy-enable)
 
+;; fix bug causing TabError, see
+;; https://github.com/jorgenschaefer/elpy/issues/907#issuecomment-224351424
+(setq-default indent-tabs-mode nil)
+
 ;; fix for "native-completion" error, see
 ;; https://github.com/jorgenschaefer/elpy/issues/887
 ;; this can be removed in emacs 25.2
