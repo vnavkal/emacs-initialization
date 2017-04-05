@@ -1,17 +1,3 @@
-(defun source-script (script)
-   (let ((env (extract-environment script)))
-       (mapc 'import-environment-variable (split-string env "\n"))))
-
-(defun extract-environment (script)
-   (shell-command-to-string (format "set -a; . %s > /dev/null 2>&1; env" script)))
-
-(defun import-environment-variable (variable-assignment)
-   (when (not (or (null variable-assignment) (string= "" variable-assignment)))
-      (let* ((key-value-pair (split-string variable-assignment "="))
-             (key (car key-value-pair))
-             (value (cadr key-value-pair)))
-        (setenv key value))))
-
 ;; Set column marker at 100 characters
 (add-hook 'ruby-mode-hook
 	  (lambda () (interactive) (column-marker-1 100)))
