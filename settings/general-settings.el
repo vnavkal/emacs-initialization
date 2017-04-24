@@ -80,4 +80,7 @@
 (global-set-key (kbd "C-,") 'previous-buffer)
 (global-set-key (kbd "C-.") 'next-buffer)
 
+;; turn off warning sound effect
+(setq ring-bell-function 'ignore)
+
 (provide 'general-settings)
