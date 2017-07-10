@@ -29,6 +29,8 @@
 
 (require 'ruby-settings)
 
+(require 'c-settings)
+
 (require 'magit-settings)
 
 (require 'eshell-settings)
