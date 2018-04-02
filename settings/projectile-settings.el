@@ -1,5 +1,4 @@
 (projectile-global-mode)
-(projectile-rails-global-mode)
 
 ;; Use helm-projectile
 (require 'helm-projectile)

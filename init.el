@@ -13,7 +13,6 @@
 ;; add all packages in the git directory to load path
 (let ((default-directory  "~/.emacs.d/git/"))
   (normal-top-level-add-subdirs-to-load-path))
-(require 'projectile-rails)
 
 (require 'general-settings)
 
