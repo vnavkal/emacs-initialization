@@ -20,8 +20,6 @@
 (require 'ido)
 (ido-mode t)
 
-(require 'column-marker)
-
 ;; Mode-specific settings
 
 (require 'python-settings)
