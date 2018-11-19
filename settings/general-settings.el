@@ -30,7 +30,7 @@
 (defun custom-set-font()
   (let* ((computer-name (getenv "COMPUTER_NAME"))
 	 (custom-font (cond ((string= computer-name "lappie") "Terminus-24")
-                            ((string= computer-name "macbook") "Source Code Pro 10")
+                            ((string= computer-name "macbook") "Source Code Pro 14")
 			    (t "Monospace-20"))))
     (set-frame-font custom-font nil t)))
 (custom-set-font)
