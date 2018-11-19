@@ -30,6 +30,7 @@
 (defun custom-set-font()
   (let* ((computer-name (getenv "COMPUTER_NAME"))
 	 (custom-font (cond ((string= computer-name "lappie") "Terminus-24")
+                            ((string= computer-name "macbook") "Source Code Pro 10")
 			    (t "Monospace-20"))))
     (set-frame-font custom-font nil t)))
 (custom-set-font)
@@ -82,5 +83,8 @@
 
 ;; turn off warning sound effect
 (setq ring-bell-function 'ignore)
+
+(setq mac-command-modifier 'meta)
+(setq mac-option-modifier nil)
 
 (provide 'general-settings)
