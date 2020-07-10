@@ -66,7 +66,7 @@
 
 ;; load the solarized color theme, and use the dark mode for the terminal and
 ;; the light mode for other frames
-(load-theme 'solarized t)
+(load-theme 'solarized-light t)
 (add-hook 'after-make-frame-functions
           (lambda (frame)
 	    (let ((mode (if (display-graphic-p frame) 'light 'dark)))
