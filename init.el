@@ -32,6 +32,8 @@
 
 (require 'eshell-settings)
 
+(require 'shell-settings)
+
 (require 'emacs-lisp-settings)
 
 (require 'dired-settings)
