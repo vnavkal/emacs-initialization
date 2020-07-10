@@ -21,6 +21,6 @@
 ;; Don't add comment at top of file when non-ascii characters are present
 (setq ruby-insert-encoding-magic-comment nil)
 
-(rvm-use-default) ;; use rvm's default ruby for the current Emacs session
+(add-hook 'ruby-mode-hook (lambda () (rvm-use-default))) ;; use rvm's default ruby for the current Emacs session
 
 (provide 'ruby-settings)
