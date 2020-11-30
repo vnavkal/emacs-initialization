@@ -28,6 +28,8 @@
 
 (require 'c-settings)
 
+(require 'c-sharp-settings)
+
 (require 'magit-settings)
 
 (require 'eshell-settings)
