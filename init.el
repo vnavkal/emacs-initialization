@@ -24,6 +24,8 @@
 
 (require 'python-settings)
 
+(require 'typescript-settings)
+
 (require 'ruby-settings)
 
 (require 'c-settings)
