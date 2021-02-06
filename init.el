@@ -22,6 +22,8 @@
 
 ;; Mode-specific settings
 
+(require 'lsp-settings)
+
 (require 'python-settings)
 
 (require 'typescript-settings)

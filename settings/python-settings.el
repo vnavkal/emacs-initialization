@@ -1,5 +1,3 @@
-(elpy-enable)
-
 ;; fix bug causing TabError, see
 ;; https://github.com/jorgenschaefer/elpy/issues/907#issuecomment-224351424
 (setq-default indent-tabs-mode nil)
