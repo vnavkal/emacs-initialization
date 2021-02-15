@@ -81,6 +81,8 @@
 (global-set-key (kbd "C-,") 'previous-buffer)
 (global-set-key (kbd "C-.") 'next-buffer)
 
+(setq-default tab-width 4)
+
 ;; turn off warning sound effect
 (setq ring-bell-function 'ignore)
 
