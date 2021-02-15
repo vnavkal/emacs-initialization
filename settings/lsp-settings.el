@@ -24,7 +24,7 @@
    (list :server-id 'ts-ls :docker-server-id 'tsls-docker :server-command "typescript-language-server --stdio")))
 
 (lsp-docker-init-clients
-  :path-mappings '(("~/fin/" . "/projects"))
+  :path-mappings '(("/home/vnavkal/fin" . "/projects"))
   :client-packages lsp-docker-client-packages
   :client-configs lsp-docker-client-configs)
 
