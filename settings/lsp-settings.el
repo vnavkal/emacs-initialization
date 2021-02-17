@@ -2,6 +2,7 @@
   :init
   (setq lsp-keymap-prefix "C-c l")
   :hook ((python-mode . lsp))
+  :hook ((csharp-mode . lsp))
   :commands lsp)
 
 (use-package lsp-ui :commands lsp-ui-mode)
