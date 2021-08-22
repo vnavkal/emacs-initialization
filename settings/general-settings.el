@@ -89,4 +89,8 @@
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier nil)
 
+;; use putty as ssh client on windows
+(if (eq system-type 'windows-nt)
+	(setq tramp-default-method "plink"))
+
 (provide 'general-settings)
