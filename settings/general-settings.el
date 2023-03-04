@@ -81,6 +81,7 @@
 (global-set-key (kbd "C-,") 'previous-buffer)
 (global-set-key (kbd "C-.") 'next-buffer)
 
+(setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 
 ;; turn off warning sound effect
