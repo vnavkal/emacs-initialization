@@ -28,10 +28,10 @@
 
 ;; default font
 (defun custom-set-font()
-  (let* ((computer-name (getenv "COMPUTER_NAME"))
-	 (custom-font (cond ((string= computer-name "lappie") "Terminus-24")
-                            ((string= computer-name "macbook") "Source Code Pro 14")
-			    (t "Monospace-20"))))
+  (let* ((hostname (system-name))
+	     (custom-font (cond ((string= hostname "viraj-XPS-13-9350") "Terminus-24")
+                            ((string= hostname "DESKTOP-VNAVKAL") "Fira Code 14")
+			                (t "Fira Code 14"))))
     (set-frame-font custom-font nil t)))
 (custom-set-font)
 (add-hook 'before-make-frame-hook 'custom-set-font)
