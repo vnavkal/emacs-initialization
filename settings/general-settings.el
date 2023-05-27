@@ -29,7 +29,7 @@
 ;; default font
 (defun custom-set-font()
   (let* ((hostname (system-name))
-	     (custom-font (cond ((string= hostname "viraj-XPS-13-9350") "Terminus-24")
+	     (custom-font (cond ((string= hostname "viraj-XPS-13-9350") "Fira Code 16")
                             ((string= hostname "DESKTOP-VNAVKAL") "Fira Code 14")
                             ((string= hostname "legg-MS-7C84") "Fira Code 22")
 			                (t "Fira Code 14"))))
