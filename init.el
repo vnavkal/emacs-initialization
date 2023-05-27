@@ -49,3 +49,5 @@
 (require 'org-settings)
 
 (require 'projectile-settings)
+
+(require 'llm-settings)
