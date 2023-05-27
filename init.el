@@ -22,6 +22,8 @@
 
 ;; Mode-specific settings
 
+(require 'straight-settings)
+
 (require 'lsp-settings)
 
 (require 'python-settings)
