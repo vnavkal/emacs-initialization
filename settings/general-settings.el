@@ -31,6 +31,7 @@
   (let* ((hostname (system-name))
 	     (custom-font (cond ((string= hostname "viraj-XPS-13-9350") "Terminus-24")
                             ((string= hostname "DESKTOP-VNAVKAL") "Fira Code 14")
+                            ((string= hostname "legg-MS-7C84") "Fira Code 22")
 			                (t "Fira Code 14"))))
     (set-frame-font custom-font nil t)))
 (custom-set-font)
