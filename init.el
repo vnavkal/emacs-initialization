@@ -53,3 +53,5 @@
 (require 'projectile-settings)
 
 (require 'llm-settings)
+
+(require 'copilot-settings)
