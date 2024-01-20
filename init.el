@@ -24,8 +24,6 @@
 
 (require 'straight-settings)
 
-(require 'lsp-settings)
-
 (require 'python-settings)
 
 (require 'typescript-settings)
@@ -55,3 +53,21 @@
 (require 'llm-settings)
 
 (require 'copilot-settings)
+
+(require 'eglot-settings)
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(helm-gtags-prefix-key "t")
+ '(helm-gtags-suggested-key-mapping t)
+ '(package-selected-packages
+   '(yaml-mode use-package solarized-theme magit lsp-docker julia-mode helm-projectile dockerfile-mode chatgpt-shell auto-complete)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
