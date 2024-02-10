@@ -6,7 +6,7 @@
          ("C-c C-j" . 'copilot-clear-overlay)
          ("M-p" . 'copilot-previous-completion)
          ("M-n" . 'copilot-next-completion)
-         ("<tab>" . 'copilot-accept-completion)
+         ("C-<tab>" . 'copilot-accept-completion)
          ("M-f" . 'copilot-accept-completion-by-word)
          ("M-<return>" . 'copilot-accept-completion-by-line)))
 
