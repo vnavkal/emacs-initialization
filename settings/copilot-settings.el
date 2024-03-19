@@ -1,7 +1,7 @@
 (use-package copilot
   :straight (:host github :repo "zerolfx/copilot.el" :files ("dist" "*.el"))
   :ensure t
-  :bind (("C-c M-g" . copilot-complete)
+  :bind (("C-c M-h" . copilot-complete)
          :map copilot-completion-map
          ("C-c C-j" . 'copilot-clear-overlay)
          ("M-p" . 'copilot-previous-completion)
