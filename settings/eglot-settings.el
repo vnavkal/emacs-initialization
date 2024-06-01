@@ -8,6 +8,6 @@
   :hook
   ((python-mode . eglot-ensure))
   :bind (("M-." . xref-find-definitions)
-         ("M->" . xref-find-definitions-other-window)))
+         ("M-/" . xref-find-definitions-other-window)))
 
 (provide 'eglot-settings)
