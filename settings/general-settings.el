@@ -95,4 +95,8 @@
 (if (eq system-type 'windows-nt)
 	(setq tramp-default-method "plink"))
 
+;; Set auth-sources file as recommended in
+;; https://magit.vc/manual/ghub/Storing-a-Token.html
+(setq auth-sources '("~/.authinfo"))
+
 (provide 'general-settings)
