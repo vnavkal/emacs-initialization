@@ -7,6 +7,7 @@
   (add-to-list 'eglot-server-programs '(python-mode . ("npx" "pyright-langserver" "--stdio")))
   :hook
   ((python-mode . eglot-ensure))
-  :bind (("M-." . eglot-find-declaration)))
+  :bind (("M-." . xref-find-definitions)
+         ("M->" . xref-find-definitions-other-window)))
 
 (provide 'eglot-settings)
