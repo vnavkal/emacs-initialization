@@ -80,6 +80,8 @@
 
 ;; set keys for cycling through buffers
 (global-set-key (kbd "C-,") 'previous-buffer)
+;; This one sometimes conflicts with an OS emoji hotkey.  See
+;; https://askubuntu.com/a/1372952 to unset that.
 (global-set-key (kbd "C-.") 'next-buffer)
 
 (setq-default indent-tabs-mode nil)
