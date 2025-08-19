@@ -16,15 +16,23 @@
 (require 'tool-bar)
 (tool-bar-mode -1)
 
-;; set emacs to share clipboard with system
-(setq x-select-enable-clipboard t)
+(defun resize-startup-frame-sensibly ()
+  "Resize the initial frame to a sensible size that fits the screen."
+  ;; Calculate the desired size in characters
+  (let* ((width-in-pixels (display-pixel-width))
+         (height-in-pixels (display-pixel-height))
+         (char-width (frame-char-width))
+         (char-height (frame-char-height))
+         (sensible-width (- (floor (/ width-in-pixels char-width)) 2))
+         (sensible-height (- (floor (/ height-in-pixels char-height)) 4)))
 
-;; default window width and height
-(defun custom-set-frame-size ()
-  (add-to-list 'default-frame-alist '(height . 48))
-  (add-to-list 'default-frame-alist '(width . 160)))
-(custom-set-frame-size)
-(add-hook 'before-make-frame-hook 'custom-set-frame-size)
+    ;; This function now directly resizes the frame that triggered the hook.
+    ;; It no longer sets 'initial-frame-alist'.
+    (set-frame-size (selected-frame) sensible-width sensible-height t)))
+
+;; Add our function to the 'window-setup-hook'.
+;; This hook runs exactly once, after the first frame is created.
+(add-hook 'window-setup-hook 'resize-startup-frame-sensibly)
 
 ;; default font
 (defun custom-set-font()
@@ -100,5 +108,26 @@
 ;; Set auth-sources file as recommended in
 ;; https://magit.vc/manual/ghub/Storing-a-Token.html
 (setq auth-sources '("~/.authinfo"))
+
+;; Ensure auto-complete is installed and set up
+(use-package auto-complete
+  :ensure t
+  :init
+  ;; This line activates auto-complete mode globally
+  (ac-config-default)
+  (global-auto-complete-mode t))
+
+
+;; Workaround for Wayland clipboard issues
+(when (string-equal (getenv "XDG_SESSION_TYPE") "wayland")
+  (setq interprogram-paste-function
+        (lambda ()
+          (shell-command-to-string "wl-paste --no-newline")))
+  (setq interprogram-cut-function
+        (lambda (text)
+          (with-temp-buffer
+            (insert text)
+            (call-process-region (point-min) (point-max) "wl-copy")))))
+
 
 (provide 'general-settings)

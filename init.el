@@ -20,9 +20,9 @@
 (require 'ido)
 (ido-mode t)
 
-;; Mode-specific settings
-
 (require 'straight-settings)
+
+;; Mode-specific settings
 
 (require 'python-settings)
 
