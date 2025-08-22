@@ -42,8 +42,6 @@
 
 (require 'org-settings)
 
-(require 'projectile-settings)
-
 (require 'llm-settings)
 
 (require 'copilot-settings)
@@ -58,7 +56,7 @@
  '(helm-gtags-prefix-key "t")
  '(helm-gtags-suggested-key-mapping t)
  '(package-selected-packages
-   '(yaml-mode use-package solarized-theme magit lsp-docker julia-mode helm-projectile dockerfile-mode chatgpt-shell auto-complete)))
+   '(yaml-mode use-package solarized-theme magit lsp-docker julia-mode dockerfile-mode chatgpt-shell auto-complete)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
