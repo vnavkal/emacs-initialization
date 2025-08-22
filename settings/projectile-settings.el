@@ -1,5 +1,3 @@
-(projectile-global-mode)
-
 ;; 1. Ensure projectile is installed and enabled
 (use-package projectile
   :ensure t
@@ -25,6 +23,8 @@
 (require 'helm-projectile)
 (setq projectile-completion-system 'helm)
 (helm-projectile-on)
+
+(projectile-global-mode)
 
 (global-set-key (kbd "M-.") 'helm-etags-select)
 

@@ -1,11 +1,3 @@
-(when (>= emacs-major-version 24)
-  (require 'package)
-  (add-to-list
-   'package-archives
-   '("melpa" . "http://melpa.org/packages/")
-   t)
-  (package-initialize))
-
 ;; path where settings files are kept
 (defconst my-settings-dir "~/.emacs.d/settings")
 (add-to-list 'load-path my-settings-dir)
@@ -14,13 +6,15 @@
 (let ((default-directory  "~/.emacs.d/git/"))
   (normal-top-level-add-subdirs-to-load-path))
 
+;; install straight early so it can be used to install
+;; other packages
+(require 'straight-settings)
+
 (require 'general-settings)
 
 ;; Set ido to start automatically
 (require 'ido)
 (ido-mode t)
-
-(require 'straight-settings)
 
 ;; Mode-specific settings
 

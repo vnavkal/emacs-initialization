@@ -16,34 +16,26 @@
 (require 'tool-bar)
 (tool-bar-mode -1)
 
-(defun resize-startup-frame-sensibly ()
-  "Resize the initial frame to a sensible size that fits the screen."
-  ;; Calculate the desired size in characters
-  (let* ((width-in-pixels (display-pixel-width))
-         (height-in-pixels (display-pixel-height))
-         (char-width (frame-char-width))
-         (char-height (frame-char-height))
-         (sensible-width (- (floor (/ width-in-pixels char-width)) 2))
-         (sensible-height (- (floor (/ height-in-pixels char-height)) 4)))
+;; Fonts
 
-    ;; This function now directly resizes the frame that triggered the hook.
-    ;; It no longer sets 'initial-frame-alist'.
-    (set-frame-size (selected-frame) sensible-width sensible-height t)))
+(defconst my/default-font "Fira Code-14")
 
-;; Add our function to the 'window-setup-hook'.
-;; This hook runs exactly once, after the first frame is created.
-(add-hook 'window-setup-hook 'resize-startup-frame-sensibly)
+;; Ensure the very first frame uses this
+(add-to-list 'default-frame-alist `(font . ,my/default-font))
 
-;; default font
-(defun custom-set-font()
-  (let* ((hostname (system-name))
-	     (custom-font (cond ((string= hostname "viraj-XPS-13-9350") "Fira Code 16")
-                            ((string= hostname "DESKTOP-VNAVKAL") "Fira Code 14")
-                            ((string= hostname "legg-MS-7C84") "Fira Code 22")
-			                (t "Fira Code 14"))))
-    (set-frame-font custom-font nil t)))
-(custom-set-font)
-(add-hook 'before-make-frame-hook 'custom-set-font)
+;; Also apply immediately to the current frame when init.el runs
+(set-face-attribute 'default nil :font my/default-font)
+
+;; For daemon/GUI frames created later
+(add-hook 'after-make-frame-functions
+          (lambda (f)
+            (with-selected-frame f
+              (set-frame-font my/default-font nil t))))
+
+;; Always start frames at 160x40 characters
+(add-to-list 'default-frame-alist '(width . 160))
+(add-to-list 'default-frame-alist '(height . 40))
+
 
 ;; require final newlines in files when they are saved
 (setq require-final-newline 't)
@@ -75,6 +67,8 @@
 
 ;; load the solarized color theme, and use the dark mode for the terminal and
 ;; the light mode for other frames
+(use-package solarized-theme
+  :straight t)
 (load-theme 'solarized-light t)
 (add-hook 'after-make-frame-functions
           (lambda (frame)
@@ -84,6 +78,8 @@
             (enable-theme 'solarized)))
 
 ;; enable auto-complete
+(use-package auto-complete
+  :straight t)
 (ac-config-default)
 
 ;; set keys for cycling through buffers
