@@ -3,6 +3,7 @@
 ;; Vertico - vertical completion interface
 (use-package vertico
   :straight t
+  :commands (vertico-mode)
   :init
   (vertico-mode))
 
@@ -18,6 +19,7 @@
   :straight t
   :bind (:map minibuffer-local-map
          ("M-A" . marginalia-cycle))
+  :commands (marginalia-mode)
   :init
   (marginalia-mode))
 

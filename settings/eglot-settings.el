@@ -3,6 +3,7 @@
 
 (use-package eglot
   :straight t
+  :commands (eglot eglot-ensure)
   :config
   (add-to-list 'eglot-server-programs '(python-mode . ("npx" "pyright-langserver" "--stdio")))
   :hook

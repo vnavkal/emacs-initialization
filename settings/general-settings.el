@@ -60,19 +60,23 @@
 ;; load the solarized color theme, and use the dark mode for the terminal and
 ;; the light mode for other frames
 (use-package solarized-theme
-  :straight t)
-(load-theme 'solarized-light t)
-(add-hook 'after-make-frame-functions
-          (lambda (frame)
-	    (let ((mode (if (display-graphic-p frame) 'light 'dark)))
-              (set-frame-parameter frame 'background-mode mode)
-              (set-terminal-parameter frame 'background-mode mode))
-            (enable-theme 'solarized)))
+  :straight t
+  :defer nil
+  :config
+  (load-theme 'solarized-light t)
+  (add-hook 'after-make-frame-functions
+            (lambda (frame)
+	      (let ((mode (if (display-graphic-p frame) 'light 'dark)))
+                (set-frame-parameter frame 'background-mode mode)
+                (set-terminal-parameter frame 'background-mode mode))
+              (enable-theme 'solarized))))
 
 ;; enable auto-complete
 (use-package auto-complete
-  :straight t)
-(ac-config-default)
+  :straight t
+  :defer nil
+  :config
+  (ac-config-default))
 
 ;; set keys for cycling through buffers
 (global-set-key (kbd "C-,") 'previous-buffer)
