@@ -105,13 +105,6 @@
 ;; https://magit.vc/manual/ghub/Storing-a-Token.html
 (setq auth-sources '("~/.authinfo"))
 
-;; Ensure auto-complete is installed and set up
-(use-package auto-complete
-  :ensure t
-  :init
-  ;; This line activates auto-complete mode globally
-  (ac-config-default)
-  (global-auto-complete-mode t))
 
 
 ;; Workaround for Wayland clipboard issues

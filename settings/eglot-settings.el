@@ -2,7 +2,7 @@
 (setq eglot-withhold-process-id "1")
 
 (use-package eglot
-  :ensure t
+  :straight t
   :config
   (add-to-list 'eglot-server-programs '(python-mode . ("npx" "pyright-langserver" "--stdio")))
   :hook

@@ -55,8 +55,7 @@
  ;; If there is more than one, they won't work right.
  '(helm-gtags-prefix-key "t")
  '(helm-gtags-suggested-key-mapping t)
- '(package-selected-packages
-   '(yaml-mode use-package solarized-theme magit lsp-docker julia-mode dockerfile-mode chatgpt-shell auto-complete)))
+)
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
