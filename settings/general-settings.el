@@ -71,12 +71,39 @@
                 (set-terminal-parameter frame 'background-mode mode))
               (enable-theme 'solarized))))
 
-;; enable auto-complete
-(use-package auto-complete
+;; enable company-mode for completion
+(use-package company
   :straight t
   :defer nil
   :config
-  (ac-config-default))
+  (global-company-mode 1)
+  :custom
+  (company-idle-delay 0.2)
+  (company-minimum-prefix-length 1)
+  (company-selection-wrap-around t)
+  (company-show-numbers t)
+  (company-tooltip-align-annotations t)
+  (company-require-match 'never)
+  :bind (:map company-active-map
+         ("C-n" . company-select-next)
+         ("C-p" . company-select-previous)
+         ("TAB" . company-complete-common-or-cycle)
+         ("<tab>" . company-complete-common-or-cycle)
+         ("S-TAB" . company-select-previous)
+         ("<backtab>" . company-select-previous)))
+
+;; Company backend extensions
+(use-package company-quickhelp
+  :straight t
+  :after company
+  :config
+  (company-quickhelp-mode))
+
+;; Better company popup with icons
+(use-package company-box
+  :straight t
+  :after company
+  :hook (company-mode . company-box-mode))
 
 ;; set keys for cycling through buffers
 (global-set-key (kbd "C-,") 'previous-buffer)
