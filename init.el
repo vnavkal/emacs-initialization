@@ -12,9 +12,8 @@
 
 (require 'general-settings)
 
-;; Set ido to start automatically
-(require 'ido)
-(ido-mode t)
+(require 'completion-settings)
+
 
 ;; Mode-specific settings
 
