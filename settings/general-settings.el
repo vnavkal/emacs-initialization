@@ -56,14 +56,6 @@
 ;; display line number even on large files
 (setq line-number-display-limit-width 2000000)
 
-;; disable prompt that appears when file was modified by another program
-;; this is not ideal, I have to do it because Insync touches files
-(defun ask-user-about-supersession-threat (fn)
-  "blatantly ignore files that changed on disk"
-  )
-(defun ask-user-about-lock (file opponent)
-  "always grab lock"
-   t)
 
 ;; load the solarized color theme, and use the dark mode for the terminal and
 ;; the light mode for other frames
