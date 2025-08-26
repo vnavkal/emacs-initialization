@@ -5,7 +5,7 @@
   :straight t
   :commands (eglot eglot-ensure)
   :config
-  (add-to-list 'eglot-server-programs '(python-mode . ("npx" "pyright-langserver" "--stdio")))
+  (add-to-list 'eglot-server-programs '(python-mode . ("pyright-langserver" "--stdio")))
   :hook
   ((python-mode . eglot-ensure))
   :bind (("M-." . xref-find-definitions)
