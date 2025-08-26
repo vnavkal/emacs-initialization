@@ -130,16 +130,18 @@
 
 
 
-;; Workaround for Wayland clipboard issues
+;; Workaround for Wayland clipboard issues - force local clipboard for remote files
 (when (string-equal (getenv "XDG_SESSION_TYPE") "wayland")
   (setq interprogram-paste-function
         (lambda ()
-          (shell-command-to-string "wl-paste --no-newline")))
+          (let ((default-directory "~/"))  ; Force local execution
+            (shell-command-to-string "wl-paste --no-newline"))))
   (setq interprogram-cut-function
         (lambda (text)
-          (with-temp-buffer
-            (insert text)
-            (call-process-region (point-min) (point-max) "wl-copy")))))
+          (let ((default-directory "~/"))  ; Force local execution
+            (with-temp-buffer
+              (insert text)
+              (call-process-region (point-min) (point-max) "wl-copy"))))))
 
 
 (provide 'general-settings)
