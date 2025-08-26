@@ -15,6 +15,9 @@
 (straight-use-package 'use-package)
 (setq straight-use-package-by-default t)
 
+;; Tell straight.el to ignore built-in packages
+(setq straight-built-in-pseudo-packages '(project xref))
+
 ;; Enable lazy loading by default
 (setq use-package-always-defer t)
 (setq use-package-expand-minimally t)
