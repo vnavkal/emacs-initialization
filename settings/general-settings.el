@@ -111,6 +111,26 @@
 ;; https://askubuntu.com/a/1372952 to unset that.
 (global-set-key (kbd "C-.") 'next-buffer)
 
+;; Copy relative path of current buffer to clipboard
+(defun my/copy-relative-path ()
+  "Copy the relative path of the current buffer's file to the clipboard.
+The path is relative to the project root (using project.el)."
+  (interactive)
+  (let* ((file-path (buffer-file-name))
+         (project (project-current))
+         (project-root (when project (project-root project))))
+    (cond
+     ((not file-path)
+      (message "Buffer is not visiting a file"))
+     ((not project-root)
+      (message "Not in a project"))
+     (t
+      (let ((relative-path (file-relative-name file-path project-root)))
+        (kill-new relative-path)
+        (message "Copied: %s" relative-path))))))
+
+(global-set-key (kbd "C-x p w") 'my/copy-relative-path)
+
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 
