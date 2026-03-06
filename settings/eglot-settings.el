@@ -5,10 +5,18 @@
   :straight t
   :commands (eglot eglot-ensure)
   :config
-  (add-to-list 'eglot-server-programs '(python-mode . ("pyright-langserver" "--stdio")))
+  (add-to-list 'eglot-server-programs '(python-mode . ("uv" "run" "ty" "server")))
   :hook
   ((python-mode . eglot-ensure))
   :bind (("M-." . xref-find-definitions)
          ("M-/" . xref-find-definitions-other-window)))
+
+(connection-local-set-profile-variables
+ 'remote-uv-profile
+ '((tramp-remote-path . (tramp-own-remote-path "/home/viraj/.local/bin"))))
+
+(connection-local-set-profiles
+ '(:application tramp :protocol "ssh")
+ 'remote-uv-profile)
 
 (provide 'eglot-settings)
