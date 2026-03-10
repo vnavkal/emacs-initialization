@@ -57,19 +57,20 @@
 (setq line-number-display-limit-width 2000000)
 
 
-;; load the solarized color theme, and use the dark mode for the terminal and
-;; the light mode for other frames
+;; load the solarized color theme: dark in terminal (-nw), light in GUI
 (use-package solarized-theme
   :straight t
   :defer nil
   :config
-  (load-theme 'solarized-light t)
+  (if (display-graphic-p)
+      (load-theme 'solarized-light t)
+    (load-theme 'solarized-dark t))
   (add-hook 'after-make-frame-functions
             (lambda (frame)
-	      (let ((mode (if (display-graphic-p frame) 'light 'dark)))
-                (set-frame-parameter frame 'background-mode mode)
-                (set-terminal-parameter frame 'background-mode mode))
-              (enable-theme 'solarized))))
+              (with-selected-frame frame
+                (if (display-graphic-p frame)
+                    (load-theme 'solarized-light t)
+                  (load-theme 'solarized-dark t))))))
 
 ;; enable company-mode for completion
 (use-package company
